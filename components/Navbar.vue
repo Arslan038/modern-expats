@@ -6,10 +6,12 @@
           <img :src="logoUrl" width="140" alt="Modern Expats" />
         </div>
         <div class="hidden md:flex items-center space-x-8">
-          <button @click="scrollToSection('home')" class="text-white hover:text-primary transition-colors font-body font-medium">Home</button>
-          <button @click="scrollToSection('services')" class="text-white hover:text-primary transition-colors font-body font-medium">Services</button>
-          <button @click="scrollToSection('testimonials')" class="text-white hover:text-primary transition-colors font-body font-medium">Testimonials</button>
-          <button @click="scrollToSection('contact')" class="text-white hover:text-primary transition-colors font-body font-medium">Contact</button>
+          <button @click="scrollToSection('home')" class="text-secondary-foreground hover:text-primary transition-colors font-body font-medium">Home</button>
+          <button @click="scrollToSection('our-story')" class="text-secondary-foreground hover:text-primary transition-colors font-body font-medium">Our Story</button>
+          <button @click="scrollToSection('why-expats')" class="text-secondary-foreground hover:text-primary transition-colors font-body font-medium">Why Modern Expats</button>
+          <button @click="scrollToSection('services')" class="text-secondary-foreground hover:text-primary transition-colors font-body font-medium">Services</button>
+          <button @click="scrollToSection('testimonials')" class="text-secondary-foreground hover:text-primary transition-colors font-body font-medium">Testimonials</button>
+          <button @click="scrollToSection('contact')" class="text-secondary-foreground hover:text-primary transition-colors font-body font-medium">Contact</button>
         </div>
         <div class="hidden md:block">
           <button @click="scrollToSection('contact')" class="bg-gradient-to-r from-primary to-primary-deep text-primary-foreground font-body font-semibold px-5 py-2.5 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">Get Started</button>

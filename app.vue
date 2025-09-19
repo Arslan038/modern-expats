@@ -24,8 +24,8 @@
   </div>
 
   <!-- Loader -->
-  <div id="loader" class="loader-overlay">
-    <!-- Clouds -->
+  <!-- <div id="loader" class="loader-overlay">
+
     <div class="clouds">
       <div class="cloud c1"></div>
       <div class="cloud c2"></div>
@@ -34,19 +34,19 @@
       <div class="cloud c5"></div>
     </div>
 
-    <!-- Plane -->
+
     <div class="plane-wrapper">
       <img src="/plane.png" alt="plane" class="plane" />
     </div>
 
-    <!-- Text -->
+
     <div class="loader-text">
       <h2 class="text-primary-deep">
         Modern <span>Expats</span>
       </h2>
       <p class="text-secondary">Crafting your perfect journey...</p>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script setup lang="ts">

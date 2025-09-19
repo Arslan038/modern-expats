@@ -13,7 +13,7 @@
         </p>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
         <!-- Images collage -->
         <div class="relative order-2 lg:order-1 scroll-reveal">
           <div class="grid grid-cols-2 gap-2">
