@@ -3,9 +3,9 @@
     <div class="relative overflow-hidden rounded-t-lg h-48">
       <img :src="image" :alt="title" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
       <div class="absolute inset-0 bg-gradient-to-t from-secondary/60 to-transparent"></div>
-      <div class="absolute bottom-4 left-4 right-4">
+      <!-- <div class="absolute bottom-4 left-4 right-4">
         <span class="inline-block px-3 py-1 bg-primary text-primary-foreground text-sm font-body font-semibold rounded-full">{{ price }}</span>
-      </div>
+      </div> -->
     </div>
     <div class="p-8">
       <h3 class="font-display font-bold text-2xl text-foreground mb-2">{{ title }}</h3>
