@@ -65,7 +65,7 @@
         </div>
 
         <div class="text-center">
-            <button @click="scrollToSection('contact')" class="bg-gradient-to-r from-primary to-primary-deep text-primary-foreground font-body font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 glow-effect">
+            <button @click="scrollToSection('contact')" class="bg-gradient-to-r from-primary to-primary-deep text-primary-foreground font-body font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
             Let's start your Journey
           </button>
         </div>

@@ -2,7 +2,7 @@
     <section class="bg-background py-16 relative overflow-hidden">
         <div class="container mx-auto px-6 relative z-10">
             <!-- Section Heading -->
-             <div class="text-center mb-16 scroll-reveal">
+            <div class="text-center mb-16 scroll-reveal">
                 <h2 class="font-display font-bold text-4xl md:text-6xl text-foreground mb-6">
                     <span class="text-foreground">Our</span>
                     <span class="relative inline-block text-primary px-1"><span class="relative z-10">Global</span><span
@@ -38,6 +38,13 @@
                     </div>
                 </div>
             </div>
+
+            <div class="text-center mt-20">
+                <button @click="scrollToSection('contact')"
+                    class="bg-gradient-to-r from-primary to-primary-deep text-primary-foreground font-body font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                    Let's start your Journey
+                </button>
+            </div>
         </div>
 
         <div class="absolute top-10 right-10 w-32 h-32 bg-primary/5 rounded-full animate-float"></div>
@@ -47,6 +54,8 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue"
+import { useScroll } from '../composables/useScroll'
+const { scrollToSection } = useScroll()
 
 const destinations = [
     {

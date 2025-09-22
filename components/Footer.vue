@@ -43,7 +43,7 @@
                 <div>
                     <h3 class="font-display font-bold text-lg text-secondary-foreground mb-4">Contact</h3>
                     <ul class="space-y-2 font-body text-secondary-foreground/80">
-                        <li>info@modernexpats.com</li>
+                        <li>modernexpats@gmail.com</li>
                         <li>+1 (555) 123-4567</li>
                         <li>24/7 Support Available</li>
                     </ul>

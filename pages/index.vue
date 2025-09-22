@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-background text-foreground font-body antialiased overflow-hidde">
+  <div class="bg-background text-foreground font-body antialiased overflow-hidden">
     <Navbar />
     <Hero />
     <OurStory />
@@ -41,9 +41,11 @@ onMounted(() => {
   }, { threshold: 0.2, rootMargin: '0px 0px -50px 0px' })
   document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el))
 })
+
+if (window) {
+  window.scrollTo(0, 0)
+}
 </script>
 
 
-<style scoped>
-</style>
-
+<style scoped></style>
