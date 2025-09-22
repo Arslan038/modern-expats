@@ -63,11 +63,18 @@
                 </div>
             </div>
         </div>
+
+        <div class="text-center">
+            <button @click="scrollToSection('contact')" class="bg-gradient-to-r from-primary to-primary-deep text-primary-foreground font-body font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 glow-effect">
+            Let's start your Journey
+          </button>
+        </div>
     </section>
 </template>
 
 <script setup>
 import { ref, onMounted, nextTick, onUnmounted } from 'vue'
+import { useScroll } from '../composables/useScroll'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import {
@@ -76,6 +83,7 @@ import {
     PaperAirplaneIcon,
     GlobeAltIcon
 } from '@heroicons/vue/24/outline'
+const { scrollToSection } = useScroll()
 
 gsap.registerPlugin(ScrollTrigger)
 
