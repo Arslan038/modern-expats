@@ -1,5 +1,6 @@
 <template>
-    <section id="why-modern-expats" class="relative bg-cover bg-center py-16 px-6 md:px-16 bg-no-repeat" style="background-image: url('/passport.jpg');">
+    <section id="why-modern-expats" class="relative bg-cover bg-center py-16 px-6 md:px-16 bg-no-repeat"
+        style="background-image: url('/passport.jpg');">
         <!-- Overlay for readability -->
         <div class="absolute inset-0 bg-black/85"></div>
 
@@ -12,12 +13,13 @@
                     <span class="text-secondary-foreground">Expats</span>
                 </h2>
                 <p class="font-body text-lg md:text-xl text-secondary-foreground max-w-3xl mx-auto leading-relaxed">
-                    A seamless, step-by-step pathway to your new life abroad, backed by real success stories from expats who've made the journey before you.
+                    A seamless, step-by-step pathway to your new life abroad, backed by real success stories from expats
+                    who've made the journey before you.
                 </p>
             </div>
 
             <!-- Timeline -->
-            <div class="relative max-w-6xl mx-auto scroll-reveal">
+            <div class="relative max-w-6xl mx-auto">
                 <!-- Gray background line -->
                 <div class="absolute left-1/2 top-0 -translate-x-1/2 h-full w-1 bg-gray-700 hidden md:block"></div>
                 <!-- Orange progress line -->
@@ -63,11 +65,11 @@
                 </div>
             </div>
         </div>
-
-        <div class="text-center">
-            <button @click="scrollToSection('contact')" class="bg-gradient-to-r from-primary to-primary-deep text-primary-foreground font-body font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-            Let's start your Journey
-          </button>
+        <div class="text-center absolute bottom-10 left-[40%] z-50">
+            <button @click="scrollToSection('contact')"
+                class="bg-gradient-to-r from-primary to-primary-deep text-primary-foreground font-body font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                Let's start your Journey
+            </button>
         </div>
     </section>
 </template>
@@ -84,10 +86,6 @@ import {
     GlobeAltIcon
 } from '@heroicons/vue/24/outline'
 const { scrollToSection } = useScroll()
-
-if (window) {
-    gsap.registerPlugin(ScrollTrigger)
-}
 
 const processSteps = [
     {
@@ -159,6 +157,7 @@ const updateProgress = () => {
 }
 
 onMounted(() => {
+    gsap.registerPlugin(ScrollTrigger)
     nextTick(() => {
         // Animate each step on scroll
         stepsRefs.value.forEach((el, i) => {
@@ -168,8 +167,8 @@ onMounted(() => {
                 {
                     opacity: 1,
                     y: 0,
-                    duration: 0.8,
-                    delay: i * 0.1,
+                    duration: 1,
+                    delay: i * 0.2,
                     scrollTrigger: {
                         trigger: el,
                         start: 'top 85%',
