@@ -3,9 +3,8 @@
     <div class="container mx-auto px-6">
       <div class="text-center mb-16 scroll-reveal">
         <h2 class="font-display font-bold text-4xl md:text-6xl text-foreground mb-6">
-          <span class="text-foreground">Our</span> 
-          <span class="relative inline-block text-primary px-1"><span class="relative z-10">Premium</span><span class="absolute inset-x-0 bottom-1 h-4 bg-primary/20 -z-0 rounded"></span></span> 
-          <span class="text-foreground">Services</span> 
+          <span class="text-foreground">Borderless</span> 
+          <span class="relative inline-block text-primary px-1"><span class="relative z-10">Pathways</span><span class="absolute inset-x-0 bottom-1 h-4 bg-primary/20 -z-0 rounded"></span></span>
         </h2>
         <p class="font-body text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
           From digital nomad visas to comprehensive travel consulting,

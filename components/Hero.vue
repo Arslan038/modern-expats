@@ -1,7 +1,7 @@
 <template>
   <section id="home" class="hero-section relative h-screen flex items-center justify-center overflow-hidden">
     <div id="hero-bg" class="absolute inset-0 z-0 hero-bg">
-      <img :src="heroUrl" alt="Digital nomad overlooking mountain landscape" class="w-full h-full object-cover scale-110" />
+      <img :src="heroUrl" alt="Digital nomad overlooking mountain landscape" class="w-full h-full object-cover animate-bg-zoom" />
       <div class="absolute inset-0 bg-gradient-to-r from-secondary/80 via-secondary/40 to-transparent"></div>
     </div>
 
@@ -11,7 +11,7 @@
 
     <div class="relative z-10 container mx-auto px-6 text-center">
       <div id="hero-content" class="hero-content">
-        <h1 class="font-display font-bold text-xl md:text-3xl lg:text-8xl text-primary-foreground mb-6 leading-tight">
+        <h1 class="font-display font-bold text-5xl sm:text-6xl md:text-6xl lg:text-8xl text-primary-foreground mb-6 leading-tight">
           <span class="block animate-slide-in-up">Modern Living,</span>
           <span class="block animate-slide-in-up text-primary" style="animation-delay: 0.2s;">Global Belonging</span>
         </h1>
@@ -21,16 +21,16 @@
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-in-up" style="animation-delay: 0.6s;">
           <button @click="scrollToSection('contact')" class="bg-gradient-to-r from-primary to-primary-deep text-primary-foreground font-body font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 glow-effect">
-            Get Your Visa Today
+            Join the Journey
           </button>
           <button @click="scrollToSection('services')" class="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-secondary font-body font-semibold text-lg px-8 py-4 rounded-xl backdrop-blur-sm transition-all duration-300 hover:scale-105">
-            Explore Services
+            Go Borderless
           </button>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 animate-slide-in-up" style="animation-delay: 0.8s;">
-          <div class="text-center"><div class="font-display font-bold text-3xl md:text-4xl text-primary mb-2">500+</div><div class="font-body text-primary-foreground/80">Visas Processed</div></div>
-          <div class="text-center"><div class="font-display font-bold text-3xl md:text-4xl text-primary mb-2">95%</div><div class="font-body text-primary-foreground/80">Success Rate</div></div>
-          <div class="text-center"><div class="font-display font-bold text-3xl md:text-4xl text-primary mb-2">50+</div><div class="font-body text-primary-foreground/80">Countries</div></div>
+          <div class="text-center"><div class="font-display font-bold text-3xl md:text-4xl text-primary mb-2">500+</div><div class="font-body text-primary-foreground/80">Journeys Made Possible</div></div>
+          <div class="text-center"><div class="font-display font-bold text-3xl md:text-4xl text-primary mb-2">100%</div><div class="font-body text-primary-foreground/80">Success Stories</div></div>
+          <div class="text-center"><div class="font-display font-bold text-3xl md:text-4xl text-primary mb-2">30+</div><div class="font-body text-primary-foreground/80">Countries</div></div>
           <div class="text-center"><div class="font-display font-bold text-3xl md:text-4xl text-primary mb-2">24/7</div><div class="font-body text-primary-foreground/80">Support</div></div>
         </div>
       </div>

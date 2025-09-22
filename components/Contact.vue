@@ -1,20 +1,26 @@
 <template>
-  <section id="contact" class="contact-section py-20 bg-gradient-to-br from-secondary via-secondary-light to-secondary relative overflow-hidden">
+  <section id="contact" class="contact-section relative py-20 bg-cover bg-center bg-no-repeat overflow-hidden" 
+    style="background-image: url('/boarding-pass.jpg');">
+
+    <!-- Overlay for readability -->
+    <div class="absolute inset-0 bg-black/60"></div>
+
     <div class="container mx-auto px-6">
       <div class="text-center mb-16 scroll-reveal">
         <h2 class="font-display font-bold text-4xl md:text-6xl text-secondary-foreground mb-6">Start Your <span class="relative inline-block"><span class="relative z-10 text-primary">Journey</span><span class="absolute inset-x-0 bottom-1 h-4 bg-primary/30 -z-0 rounded"></span></span> <span class="text-primary-foreground">Today</span></h2>
-        <p class="font-body text-xl text-secondary-foreground/80 max-w-3xl mx-auto leading-relaxed">Ready to explore the world? Get expert guidance for your visa application and let us help you turn your travel dreams into reality.</p>
+        <p class="font-body text-xl text-secondary-foreground/80 max-w-3xl mx-auto leading-relaxed">The world isn’t meant to be visited, it’s meant to be lived. Let us guide your visa path so you can belong anywhere, and build a life without borders built by nomads, for nomads.</p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        <div class="premium-card bg-secondary-foreground scroll-reveal">
+        <div class="relative bg-white rounded-2xl shadow-2xl border-4 border-dashed border-orange-500 scroll-reveal">
           <div class="p-8">
             <h3 class="font-display font-bold text-2xl text-foreground mb-6">Get Free Consultation</h3>
             <form class="space-y-6" @submit.prevent="submitContact">
-              <div><input v-model="form.name" type="text" name="name" placeholder="Your Full Name" required class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300" /></div>
-              <div><input v-model="form.email" type="email" name="email" placeholder="Your Email Address" required class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300" /></div>
+              <div><input v-model="form.name" type="text" name="name" placeholder="Your Full Name" required class="w-full px-4 py-3 rounded-lg border border-border border-gray-300 bg-gray-50 text-foreground focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300" /></div>
+              <div><input v-model="form.email" type="email" name="email" placeholder="Your Email Address" required class="w-full px-4 py-3 rounded-lg border border-border border-gray-300 bg-gray-50 text-foreground focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300" /></div>
+              <div><input v-model="form.destination" type="text" name="destination" placeholder="Your Destination" required class="w-full px-4 py-3 rounded-lg border border-border border-gray-300 bg-gray-50 text-foreground focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300" /></div>
               <div>
-                <select v-model="form.service" name="service" required class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300">
+                <select v-model="form.service" name="service" required class="w-full px-4 py-3 rounded-lg border border-border text-foreground border-gray-300 bg-gray-50 focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300">
                   <option value="">Select Service Type</option>
                   <option value="digital-nomad">Digital Nomad Visa</option>
                   <option value="visitor">Visitor Visa</option>
@@ -22,7 +28,7 @@
                   <option value="other">Other Services</option>
                 </select>
               </div>
-              <div><textarea v-model="form.message" name="message" placeholder="Tell us about your travel plans and visa requirements..." rows="5" required class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 resize-none"></textarea></div>
+              <div><textarea v-model="form.message" name="message" placeholder="Tell us about your travel plans and visa requirements..." rows="5" required class="w-full px-4 py-3 rounded-lg border border-border border-gray-300 bg-gray-50  text-foreground focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 resize-none"></textarea></div>
               <button type="submit" class="w-full bg-gradient-to-r from-primary to-primary-deep text-primary-foreground font-body font-semibold py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">Send Message & Get Free Quote</button>
             </form>
           </div>
@@ -76,7 +82,7 @@
 import { reactive } from 'vue'
 import ContactItem from '../components/ContactItem.vue'
 
-const form = reactive({ name: '', email: '', service: '', message: '' })
+const form = reactive({ name: '', email: '', destination: '', service: '', message: '' })
 
 function submitContact() {
   const toast = document.getElementById('toast')

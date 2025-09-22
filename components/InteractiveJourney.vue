@@ -1,5 +1,9 @@
 <template>
-  <section class="bg-secondary py-16">
+  <section class="relative bg-cover bg-center py-24 bg-no-repeat" 
+    style="background-image: url('/map.jpg');">
+    <!-- Overlay for readability -->
+    <div class="absolute inset-0 bg-black/85"></div>
+
     <div class="container mx-auto px-6">
       <div class="text-center mb-16 scroll-reveal">
         <h2
@@ -25,10 +29,10 @@
 
       <!-- Globe (centered, no overflow) -->
       <client-only>
-        <div class="flex justify-center">
+        <div class="flex justify-center pointer-events-auto">
           <div
             ref="globeEl"
-            class="aspect-square w-full max-w-2xl h-auto rounded-xl shadow-lg bg-secondary pointer-events-auto"
+            class="aspect-square w-full max-w-4xl h-auto rounded-xl shadow-lg pointer-events-auto animate-float"
           ></div>
         </div>
       </client-only>
@@ -143,14 +147,24 @@ onMounted(async () => {
     // Country polygons
     .polygonsData(countries.features)
     .polygonCapColor(d => (visited.includes(d.properties.name) ? '#E67A2E' : '#374151'))
-    .polygonSideColor(() => 'rgba(0,0,0,0.25)')
+    .polygonSideColor(() => 'rgba(0,0,0,0.15)')
     .polygonStrokeColor(() => '#121620')
     // Hover label for country name (built-in lightweight tooltip)
-    .polygonLabel(d => `${d.properties.name}`)
+    // .polygonLabel(d => `${d.properties.name}`)
+    .onPolygonHover(hoverD => {
+      if (hoverD) {
+          globe.controls().autoRotate = false
+      } else {
+        globe.controls().autoRotate = true
+      }
+    })
 
   // Limit zoom to avoid clipping
   globe.controls().minDistance = 300
-  globe.controls().maxDistance = 1000
+  globe.controls().maxDistance = 800
+
+  globe.controls().autoRotate = true
+  globe.controls().autoRotateSpeed = 0.5
 
   // Size the canvas to the square container
   fitGlobeToContainer()

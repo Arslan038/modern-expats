@@ -13,7 +13,7 @@
         </p>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <!-- Images collage -->
         <div class="relative order-2 lg:order-1 scroll-reveal">
           <div class="grid grid-cols-2 gap-2">
@@ -43,25 +43,18 @@
         <div class="order-1 lg:order-2 space-y-6 scroll-reveal">
           <p class="font-body text-base md:text-lg text-foreground/90 leading-relaxed">
             Along the way, we’ve secured 4 global residencies, built a community, and helped hundreds of people unlock
-            borderless living. What drives us is simple: <span class="font-semibold text-primary">Freedom</span>. <span
+            borderless living. What drives us is simple: <span class="font-semibold text-primary">Freedom, </span> <span
               class="font-semibold text-primary">Belonging</span>. A lifestyle without borders.
           </p>
           <p class="font-body text-base md:text-lg text-foreground/90 leading-relaxed">
-            Modern Expats isn’t just our journey, it’s an invitation. To join a movement of nomads, expats, and global
-            professionals who are proving every day that the world is one home.
+            But <span class="font-semibold text-primary">Modern Expats</span> isn’t just our journey, it’s a boarding pass to yours. It’s for the ones who see the world not as lines on a map, but as chapters waiting to be lived. For those who trade offices for oceans, routines for runways, and addresses for adventures.
           </p>
 
-          <div class="mt-6 flex flex-wrap gap-3">
-            <span class="px-4 py-2 rounded-full bg-primary/10 text-primary font-body text-sm">30+ countries</span>
-            <span class="px-4 py-2 rounded-full bg-primary/10 text-primary font-body text-sm">4 residencies</span>
-            <span class="px-4 py-2 rounded-full bg-primary/10 text-primary font-body text-sm">Hundreds helped</span>
-          </div>
-
           <div class="pt-4">
-            <button @click="scrollToSection('services')"
+            <!-- <button @click="scrollToSection('services')"
               class="bg-gradient-to-r from-primary to-primary-deep text-primary-foreground font-body font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
               Explore Our Services
-            </button>
+            </button> -->
           </div>
         </div>
       </div>
@@ -70,8 +63,8 @@
 </template>
 
 <script setup lang="ts">
-import { useScroll } from '../composables/useScroll'
-const { scrollToSection } = useScroll()
+// import { useScroll } from '../composables/useScroll'
+// const { scrollToSection } = useScroll()
 </script>
 
 <style scoped></style>

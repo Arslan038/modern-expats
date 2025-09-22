@@ -3,9 +3,8 @@
     <div class="container mx-auto px-6">
       <div class="text-center mb-16 scroll-reveal">
         <h2 class="font-display font-bold text-4xl md:text-6xl text-foreground mb-6">
-          <span class="text-foreground">What Our</span> 
-          <span class="relative inline-block text-primary px-1"><span class="relative z-10">Travelers</span><span class="absolute inset-x-0 bottom-1 h-4 bg-primary/20 -z-0 rounded"></span></span> 
-          <span class="text-foreground">Say</span> 
+          <span class="text-foreground">Voices of </span> 
+          <span class="relative inline-block text-primary px-1"><span class="relative z-10">Modern Expats</span><span class="absolute inset-x-0 bottom-1 h-4 bg-primary/20 -z-0 rounded"></span></span>
         </h2>
         <p class="font-body text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">Join hundreds of successful travelers who trusted us with their visa journey</p>
         <div class="mt-12 relative max-w-4xl mx-auto">
@@ -23,8 +22,8 @@
 
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center scroll-reveal">
         <div class="premium-card p-6"><div class="font-display font-bold text-3xl md:text-4xl text-primary mb-2">500+</div><div class="font-body text-muted-foreground">Happy Clients</div></div>
-        <div class="premium-card p-6"><div class="font-display font-bold text-3xl md:text-4xl text-primary mb-2">95%</div><div class="font-body text-muted-foreground">Approval Rate</div></div>
-        <div class="premium-card p-6"><div class="font-display font-bold text-3xl md:text-4xl text-primary mb-2">50+</div><div class="font-body text-muted-foreground">Countries Served</div></div>
+        <div class="premium-card p-6"><div class="font-display font-bold text-3xl md:text-4xl text-primary mb-2">100%</div><div class="font-body text-muted-foreground">Approval Rate</div></div>
+        <div class="premium-card p-6"><div class="font-display font-bold text-3xl md:text-4xl text-primary mb-2">30+</div><div class="font-body text-muted-foreground">Countries Served</div></div>
         <div class="premium-card p-6"><div class="font-display font-bold text-3xl md:text-4xl text-primary mb-2">4.9</div><div class="font-body text-muted-foreground">Average Rating</div></div>
       </div>
     </div>

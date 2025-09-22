@@ -48,6 +48,10 @@ export default {
         'heading-highlight': 'linear-gradient(0deg, rgba(255,133,51,0.22) 0%, rgba(255,133,51,0.22) 100%)'
       }),
       keyframes: {
+        'bg-zoom': {
+          '0%, 100%': { transform: 'scale(1.25)' },
+          '50%': { transform: 'scale(1.00)' }
+        },
         planeFloat: {
           '0%, 100%': { transform: 'translateY(0) translateX(0) rotate(0deg)' },
           '25%': { transform: 'translateY(-8px) translateX(6px) rotate(-2deg)' },
@@ -84,7 +88,8 @@ export default {
       animation: {
         float: 'float 6s ease-in-out infinite',
         'slide-in-up': 'slideInUp 0.8s cubic-bezier(0.23, 1, 0.32, 1) both',
-        'parallax-float': 'parallaxFloat 4s ease-in-out infinite'
+        'parallax-float': 'parallaxFloat 4s ease-in-out infinite',
+        'bg-zoom': 'bg-zoom 12s ease-in-out infinite'
       }
     }
   },
