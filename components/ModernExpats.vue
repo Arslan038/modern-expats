@@ -85,7 +85,9 @@ import {
 } from '@heroicons/vue/24/outline'
 const { scrollToSection } = useScroll()
 
-gsap.registerPlugin(ScrollTrigger)
+if (window) {
+    gsap.registerPlugin(ScrollTrigger)
+}
 
 const processSteps = [
     {
