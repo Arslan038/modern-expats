@@ -20,20 +20,45 @@
 
             <!-- Timeline -->
             <div class="relative max-w-6xl mx-auto">
-                <!-- Gray background line -->
-                <div class="absolute left-1/2 top-0 -translate-x-1/2 h-full w-1 bg-gray-700 hidden md:block"></div>
+                <!-- Road/Runway center line with white center lines -->
+                <div class="absolute left-1/2 top-0 -translate-x-1/2 h-full w-3 bg-gray-700 hidden md:block">
+                    <!-- White center line -->
+                    <div class="absolute left-1/2 top-0 -translate-x-1/2 w-1 h-full bg-white/80">
+                        <!-- Dashed effect using repeating gradient -->
+                        <div class="w-full h-full bg-secondary/40"></div>
+                    </div>
+                </div>
+
                 <!-- Orange progress line -->
                 <div ref="progressLine"
-                    class="absolute left-1/2 top-0 -translate-x-1/2 w-1 bg-primary origin-top hidden md:block"
+                    class="absolute left-1/2 top-0 -translate-x-1/2 w-1 bg-primary/80 origin-top hidden md:block"
                     :style="{ height: progressHeight + '%' }"></div>
+
+                <!-- Aeroplane icon that moves with progress and changes direction -->
+                <div class="absolute left-1/2 hidden md:block z-20 transition-all duration-100"
+                    :class="isScrollingDown ? '-translate-x-[17.5px]' : '-translate-x-[22.5px]'"
+                    :style="{ top: `calc(${progressHeight}% - 20px)` }">
+                    <div class="w-10 h-10 transform transition-transform duration-300" :class="[
+                        { 'scale-110': progressHeight > 0 && progressHeight < 100 },
+                        { 'rotate-180': isScrollingDown },
+                        { 'rotate-0': !isScrollingDown }
+                    ]">
+                        <!-- SVG Aeroplane Icon -->
+                        <svg viewBox="0 0 24 24" fill="#F9B44C"
+                            class="w-full h-full text-secondary-foreground text-primary drop-shadow-lg">
+                            <path
+                                d="M22 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S12 2.67 12 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L16 19v-5.5l8 2.5z" />
+                        </svg>
+                    </div>
+                </div>
 
                 <!-- Steps -->
                 <div v-for="(step, i) in processSteps" :key="i" ref="stepsRefs"
-                    class="relative flex flex-col md:flex-row items-center mb-16 md:mb-24 group">
+                    class="relative flex flex-col md:flex-row items-center mb-16 md:mb-10 group">
                     <!-- Process Card - Alternating sides -->
                     <div class="w-full md:w-[45%] p-6 rounded-xl shadow-md transition duration-500
-                 bg-gray-900/80 border border-gray-700 text-left group-hover:scale-105 hover:shadow-xl"
-                        :class="i % 2 === 0 ? 'md:mr-auto md:pr-10' : 'md:ml-auto md:pl-10 order-2'">
+                 bg-gray-900/80 border border-gray-700 text-left group-hover:scale-105 hover:shadow-xl md:mr-auto md:pr-10"
+                        >
                         <div class="flex items-center gap-3 mb-3">
                             <div class="flex items-center justify-center w-12 h-12 rounded-full text-black shadow-md border border-2 border-primary
                      transition transform duration-300 group-hover:scale-110 group-hover:shadow-lg">
@@ -47,15 +72,15 @@
                     <!-- Center marker - Hidden on mobile -->
                     <div
                         class="absolute left-1/2 -translate-x-1/2 z-10 flex items-center justify-center hidden md:flex">
-                        <div class="w-7 h-7 rounded-full bg-black border border-4 border-primary shadow-md"></div>
+                        <div class="w-7 h-7 rounded-full bg-black border-4 border-primary shadow-md"></div>
                     </div>
 
                     <!-- Story Card - Alternating sides -->
-                    <div class="w-full md:w-[45%] mt-6 md:mt-0 flex items-center gap-4 bg-gray-900/80 border border-gray-700 p-5 rounded-xl shadow-md
-                 transition transform duration-300 hover:scale-105 hover:shadow-xl"
-                        :class="i % 2 === 0 ? 'md:ml-auto md:pl-10' : 'md:mr-auto md:pr-10 order-1'">
+                    <div class="w-full md:w-[45%] mt-6 md:mt-[150px] flex items-center gap-4 bg-[#203F42] border border-[#203F42] p-5 rounded-3xl shadow-md
+                 transition transform duration-300 hover:scale-105 hover:shadow-2xl md:ml-auto md:pl-10"
+                        >
                         <!-- Avatar -->
-                        <img :src="step.story.avatar" alt="" class="w-14 h-14 rounded-full object-cover border border-2 border-secondary-foreground
+                        <img :src="step.story.avatar" alt="" class="w-14 h-14 rounded-full object-cover border-2 border-secondary-foreground
                    transition transform duration-300 hover:scale-110 hover:shadow-lg" />
                         <div>
                             <h4 class="font-semibold text-secondary-foreground">{{ step.story.name }}</h4>
@@ -133,6 +158,8 @@ const processSteps = [
 const stepsRefs = ref([])
 const progressLine = ref(null)
 const progressHeight = ref(0)
+const isScrollingDown = ref(true)
+const lastScrollY = ref(0)
 
 let scrollTriggerInstance = null
 
@@ -142,7 +169,15 @@ const updateProgress = () => {
     const timelineElement = progressLine.value.parentElement
     const timelineRect = timelineElement.getBoundingClientRect()
     const windowHeight = window.innerHeight
-    const documentHeight = document.documentElement.scrollHeight
+    const currentScrollY = window.scrollY
+
+    // Detect scroll direction
+    if (currentScrollY > lastScrollY.value) {
+        isScrollingDown.value = true
+    } else if (currentScrollY < lastScrollY.value) {
+        isScrollingDown.value = false
+    }
+    lastScrollY.value = currentScrollY
 
     // Calculate progress based on scroll position relative to timeline
     const timelineTop = timelineRect.top + window.scrollY
@@ -156,6 +191,22 @@ const updateProgress = () => {
     progressHeight.value = progress
 }
 
+// Throttle function to limit scroll event frequency
+const throttle = (func, limit) => {
+    let inThrottle
+    return function () {
+        const args = arguments
+        const context = this
+        if (!inThrottle) {
+            func.apply(context, args)
+            inThrottle = true
+            setTimeout(() => inThrottle = false, limit)
+        }
+    }
+}
+
+const throttledUpdateProgress = throttle(updateProgress, 50)
+
 onMounted(() => {
     gsap.registerPlugin(ScrollTrigger)
     nextTick(() => {
@@ -167,8 +218,8 @@ onMounted(() => {
                 {
                     opacity: 1,
                     y: 0,
-                    duration: 1,
-                    delay: i * 0.2,
+                    duration: 0.8,
+                    delay: i * 0.05,
                     scrollTrigger: {
                         trigger: el,
                         start: 'top 85%',
@@ -179,8 +230,8 @@ onMounted(() => {
         })
 
         // Set up scroll listener for progress bar
-        window.addEventListener('scroll', updateProgress)
-        window.addEventListener('resize', updateProgress)
+        window.addEventListener('scroll', throttledUpdateProgress)
+        window.addEventListener('resize', throttledUpdateProgress)
 
         // Initial calculation
         updateProgress()
@@ -202,7 +253,7 @@ onUnmounted(() => {
     if (scrollTriggerInstance) {
         scrollTriggerInstance.kill()
     }
-    window.removeEventListener('scroll', updateProgress)
-    window.removeEventListener('resize', updateProgress)
+    window.removeEventListener('scroll', throttledUpdateProgress)
+    window.removeEventListener('resize', throttledUpdateProgress)
 })
 </script>

@@ -6,16 +6,18 @@
 
     <ModernExpats />
 
+    <GlobalFootprints />
+
     <Services />
 
-    <GlobalFootprints />
+    
 
     <!-- <PlainMap /> -->
 
     <InteractiveJourney />
 
     <Testimonials />
-
+    
     <Contact />
 
     <Footer />

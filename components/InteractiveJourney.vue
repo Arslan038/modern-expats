@@ -124,17 +124,13 @@ let resizeObs
 let openTipRef = null // currently open tooltip (DOM node) so we can close it when another opens
 
 onMounted(async () => {
-  // Dynamic imports (client-only)
   const Globe = (await import('globe.gl')).default
-
-  // Fetch world countries (GeoJSON with `properties.name`)
   const countries = await fetch(
     'https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson'
   ).then(res => res.json())
 
   await nextTick()
 
-  // Create globe
   globe = Globe()(globeEl.value)
     .globeImageUrl('//unpkg.com/three-globe/example/img/earth-night.jpg')
     .bumpImageUrl('//unpkg.com/three-globe/example/img/earth-topology.png')
@@ -142,33 +138,18 @@ onMounted(async () => {
     .showAtmosphere(true)
     .atmosphereColor('#F5E3B3')
     .atmosphereAltitude(0.15)
-    // Initial view → EU in front
     .pointOfView({ lat: 54, lng: 15, altitude: 2 }, 0)
-    // Country polygons
     .polygonsData(countries.features)
     .polygonCapColor(d => (visited.includes(d.properties.name) ? '#E67A2E' : '#374151'))
     .polygonSideColor(() => 'rgba(0,0,0,0.15)')
     .polygonStrokeColor(() => '#121620')
-    // Hover label for country name (built-in lightweight tooltip)
-    // .polygonLabel(d => `${d.properties.name}`)
-    .onPolygonHover(hoverD => {
-      if (hoverD) {
-          globe.controls().autoRotate = false
-      } else {
-        globe.controls().autoRotate = true
-      }
-    })
 
-  // Limit zoom to avoid clipping
   globe.controls().minDistance = 300
   globe.controls().maxDistance = 800
-
   globe.controls().autoRotate = true
   globe.controls().autoRotateSpeed = 0.5
 
-  // Size the canvas to the square container
   fitGlobeToContainer()
-  // Keep responsive
   if ('ResizeObserver' in window) {
     resizeObs = new ResizeObserver(() => fitGlobeToContainer())
     resizeObs.observe(globeEl.value)
@@ -176,13 +157,33 @@ onMounted(async () => {
     window.addEventListener('resize', fitGlobeToContainer)
   }
 
-  // Add clickable HTML pins with anchored tooltips
   globe
     .htmlElementsData(pins)
     .htmlLat(d => d.lat)
     .htmlLng(d => d.lng)
     .htmlElement(d => makePinWithTooltip(d))
+
+  // 🔥 Fix scroll vs zoom
+  let lastWheelTime = 0
+  globeEl.value.addEventListener(
+    'wheel',
+    (e) => {
+      const now = Date.now()
+      if (now - lastWheelTime < 400) {
+        // second scroll → let page scroll
+        e.stopImmediatePropagation()
+        globe.controls().enableZoom = false
+      } else {
+        // first scroll → zoom globe
+        e.preventDefault()
+        globe.controls().enableZoom = true
+      }
+      lastWheelTime = now
+    },
+    { passive: false }
+  )
 })
+
 
 onBeforeUnmount(() => {
   if (resizeObs && globeEl.value) resizeObs.unobserve(globeEl.value)

@@ -36,7 +36,15 @@ export default defineNuxtConfig({
     '~/assets/css/custom.css'
   ],
   runtimeConfig: {
-    public: {}
+    // Private keys (only available on server)
+    sendgridApiKey: process.env.SENDGRID_API_KEY,
+    sendgridFromEmail: process.env.SENDGRID_FROM_EMAIL,
+    adminEmail: process.env.ADMIN_EMAIL,
+    
+    // Public keys (exposed to client too)
+    public: {
+      // Add any public config here if needed
+    }
   },
   compatibilityDate: '2024-04-03'
 })
