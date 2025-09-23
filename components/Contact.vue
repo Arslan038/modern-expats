@@ -88,19 +88,17 @@ const form = reactive({ name: '', email: '', destination: '', service: '', messa
 
 async function submitContact() {
   try {
-    const data = await $fetch('/api/send-email', {
+    const resp = await $fetch('/api/send-email', {
       method: 'POST',
       body: {
         ...form
       }
     })
 
-    console.log(data);
-
 
     // Show toast notification
     const toast = document.getElementById('toast')
-    if (data && toast) {
+    if (resp && toast) {
       const span = toast.querySelector('span')
       if (span) span.textContent = "Message Sent Successfully! We'll get back to you within 24 hours with personalized guidance."
       toast.setAttribute('style', 'transform: translateX(0); opacity: 1;')
