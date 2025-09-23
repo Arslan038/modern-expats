@@ -115,7 +115,7 @@
               <div class="space-y-4">
                 <div class="flex items-center justify-between">
                   <span class="font-body text-foreground">Success Rate</span>
-                  <span class="font-body font-bold text-primary">95%</span>
+                  <span class="font-body font-bold text-primary">100%</span>
                 </div>
                 <div class="flex items-center justify-between">
                   <span class="font-body text-foreground">Average Processing</span>
@@ -123,7 +123,7 @@
                 </div>
                 <div class="flex items-center justify-between">
                   <span class="font-body text-foreground">Countries Covered</span>
-                  <span class="font-body font-bold text-primary">50+</span>
+                  <span class="font-body font-bold text-primary">30+</span>
                 </div>
                 <div class="flex items-center justify-between">
                   <span class="font-body text-foreground">Expert Consultants</span>
