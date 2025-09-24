@@ -4,7 +4,7 @@
         <!-- Overlay for readability -->
         <div class="absolute inset-0 bg-black/85"></div>
 
-        <div class="container mx-auto mb-20 px-6">
+        <div class="container mx-auto mb-[150px] px-6">
             <div class="text-center mb-16 scroll-reveal">
                 <h2 class="font-display font-bold text-4xl md:text-6xl text-secondary-foreground mb-6">
                     <span class="text-secondary-foreground">Why</span>
@@ -35,17 +35,15 @@
                     :style="{ height: progressHeight + '%' }"></div>
 
                 <!-- Aeroplane icon that moves with progress and changes direction -->
-                <div class="absolute left-1/2 hidden md:block z-20 transition-all duration-100"
-                    :class="isScrollingDown ? '-translate-x-[17.5px]' : '-translate-x-[22.5px]'"
-                    :style="{ top: `calc(${progressHeight}% - 20px)` }">
+                <div ref="planeEl" class="absolute left-1/2 hidden md:block z-20"
+                    :class="isScrollingDown ? '-translate-x-[17.5px]' : '-translate-x-[22.5px]'">
                     <div class="w-10 h-10 transform transition-transform duration-300" :class="[
                         { 'scale-110': progressHeight > 0 && progressHeight < 100 },
                         { 'rotate-180': isScrollingDown },
                         { 'rotate-0': !isScrollingDown }
                     ]">
-                        <!-- SVG Aeroplane Icon -->
-                        <svg viewBox="0 0 24 24" fill="#F9B44C"
-                            class="w-full h-full text-secondary-foreground text-primary drop-shadow-lg">
+                        <!-- SVG -->
+                        <svg viewBox="0 0 24 24" fill="#F9B44C" class="w-full h-full drop-shadow-lg">
                             <path
                                 d="M22 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S12 2.67 12 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L16 19v-5.5l8 2.5z" />
                         </svg>
@@ -56,9 +54,9 @@
                 <div v-for="(step, i) in processSteps" :key="i" ref="stepsRefs"
                     class="relative flex flex-col md:flex-row items-center mb-16 md:mb-10 group">
                     <!-- Process Card - Alternating sides -->
-                    <div class="w-full md:w-[45%] p-6 rounded-xl shadow-md transition duration-500
-                 bg-gray-900/80 border border-gray-700 text-left group-hover:scale-105 hover:shadow-xl md:mr-auto md:pr-10"
-                        >
+                    <div
+                        class="w-full md:w-[45%] p-6 rounded-xl shadow-md transition duration-500
+                 bg-gray-900/80 border border-gray-700 text-left group-hover:scale-105 hover:shadow-xl md:mr-auto md:pr-10">
                         <div class="flex items-center gap-3 mb-3">
                             <div class="flex items-center justify-center w-12 h-12 rounded-full text-black shadow-md border border-2 border-primary
                      transition transform duration-300 group-hover:scale-110 group-hover:shadow-lg">
@@ -77,8 +75,7 @@
 
                     <!-- Story Card - Alternating sides -->
                     <div class="w-full md:w-[45%] mt-6 md:mt-[150px] flex items-start gap-4 bg-[#203F42] border border-[#203F42] p-5 rounded-3xl shadow-md
-                 transition transform duration-300 hover:scale-105 hover:shadow-2xl md:ml-auto md:pl-10"
-                        >
+                 transition transform duration-300 hover:scale-105 hover:shadow-2xl md:ml-auto md:pl-10">
                         <!-- Avatar -->
                         <img :src="step.story.avatar" alt="" class="w-14 h-14 rounded-full object-cover border-2 border-secondary-foreground
                    transition transform duration-300 hover:scale-110 hover:shadow-lg" />
@@ -90,7 +87,7 @@
                 </div>
             </div>
         </div>
-        <div class="text-center absolute left-0 bottom-[30px] sm:bottom-[30px] z-50 w-full">
+        <div class="text-center absolute left-0 bottom-[70px] sm:bottom-[70px] z-50 w-full">
             <button @click="scrollToSection('contact')"
                 class="w-[80%] sm:w-[280px] bg-gradient-to-r from-primary to-primary-deep text-primary-foreground font-body font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
                 Let's start your Journey
@@ -113,52 +110,56 @@ import {
 const { scrollToSection } = useScroll()
 
 const processSteps = [
-  {
-    title: 'Eligibility Check',
-    description: 'We evaluate your profile against visa requirements, ensuring you take the right path from day one and avoid unnecessary delays.',
-    icon: ClipboardDocumentCheckIcon,
-    story: {
-      name: 'Johan – Spain Visa',
-      detail: '"I wasn’t sure if I even qualified for a Spain visa, but their team guided me from the very start. Thanks to their clear advice and support, I got my visa in just 5 weeks!"',
-      avatar: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=200&h=200&fit=crop'
+    {
+        title: 'Eligibility Check',
+        description: 'We evaluate your profile against visa requirements, ensuring you take the right path from day one and avoid unnecessary delays.',
+        icon: ClipboardDocumentCheckIcon,
+        story: {
+            name: 'Johan – Spain Visa',
+            detail: '"I wasn’t sure if I even qualified for a Spain visa, but their team guided me from the very start. Thanks to their clear advice and support, I got my visa in just 5 weeks!"',
+            avatar: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=200&h=200&fit=crop'
+        }
+    },
+    {
+        title: 'Documentation Preparation',
+        description: 'We guide you to prepare and review all required documents carefully, avoiding common mistakes and ensuring accuracy.',
+        icon: DocumentTextIcon,
+        story: {
+            name: 'Sara – Portugal Residency',
+            detail: '"The paperwork for Portugal residency felt overwhelming at first, but they made it simple. Every document was reviewed carefully, and I faced zero delays. Truly professional support!"',
+            avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop'
+        }
+    },
+    {
+        title: 'Submission & Guidance',
+        description: 'We handle submissions with attention to detail and provide ongoing guidance, keeping you informed at every step.',
+        icon: PaperAirplaneIcon,
+        story: {
+            name: 'Umar – Malta Nomad Visa',
+            detail: '"From submission to approval, I felt supported the entire way. The process was smooth, stress-free, and I got my Malta Nomad Visa much faster than expected!"',
+            avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop'
+        }
+    },
+    {
+        title: 'Relocation Success',
+        description: 'We help you settle in your new country, providing relocation advice and follow-up support for a smooth transition.',
+        icon: GlobeAltIcon,
+        story: {
+            name: 'Emma – Portugal',
+            detail: '"Moving with my family was a big step, but their relocation support made everything easier—from finding housing to settling in. We couldn’t have done it so smoothly without them!"',
+            avatar: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=200&h=200&fit=crop'
+        }
     }
-  },
-  {
-    title: 'Documentation Preparation',
-    description: 'We guide you to prepare and review all required documents carefully, avoiding common mistakes and ensuring accuracy.',
-    icon: DocumentTextIcon,
-    story: {
-      name: 'Sara – Portugal Residency',
-      detail: '"The paperwork for Portugal residency felt overwhelming at first, but they made it simple. Every document was reviewed carefully, and I faced zero delays. Truly professional support!"',
-      avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop'
-    }
-  },
-  {
-    title: 'Submission & Guidance',
-    description: 'We handle submissions with attention to detail and provide ongoing guidance, keeping you informed at every step.',
-    icon: PaperAirplaneIcon,
-    story: {
-      name: 'Umar – Malta Nomad Visa',
-      detail: '"From submission to approval, I felt supported the entire way. The process was smooth, stress-free, and I got my Malta Nomad Visa much faster than expected!"',
-      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop'
-    }
-  },
-  {
-    title: 'Relocation Success',
-    description: 'We help you settle in your new country, providing relocation advice and follow-up support for a smooth transition.',
-    icon: GlobeAltIcon,
-    story: {
-      name: 'Emma – Portugal',
-      detail: '"Moving with my family was a big step, but their relocation support made everything easier—from finding housing to settling in. We couldn’t have done it so smoothly without them!"',
-      avatar: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=200&h=200&fit=crop'
-    }
-  }
 ]
 
 
 const stepsRefs = ref([])
 const progressLine = ref(null)
+const planeEl = ref(null)
+
 const progressHeight = ref(0)
+let targetProgress = 0
+
 const isScrollingDown = ref(true)
 const lastScrollY = ref(0)
 
@@ -172,24 +173,34 @@ const updateProgress = () => {
     const windowHeight = window.innerHeight
     const currentScrollY = window.scrollY
 
-    // Detect scroll direction
-    if (currentScrollY > lastScrollY.value) {
-        isScrollingDown.value = true
-    } else if (currentScrollY < lastScrollY.value) {
-        isScrollingDown.value = false
-    }
+    // Scroll direction
+    isScrollingDown.value = currentScrollY > lastScrollY.value
     lastScrollY.value = currentScrollY
 
-    // Calculate progress based on scroll position relative to timeline
+    // Progress %
     const timelineTop = timelineRect.top + window.scrollY
     const timelineBottom = timelineRect.bottom + window.scrollY
     const scrollPosition = window.scrollY + windowHeight / 2
-
-    // Calculate progress percentage (0% to 100%)
     let progress = ((scrollPosition - timelineTop) / (timelineBottom - timelineTop)) * 100
-    progress = Math.max(0, Math.min(100, progress)) // Clamp between 0 and 100
+    progress = Math.max(0, Math.min(100, progress))
 
-    progressHeight.value = progress
+    // Store as target
+    targetProgress = progress
+
+    // Animate smoothly to target using GSAP
+    gsap.to(progressHeight, {
+        duration: 0.4,
+        value: targetProgress,
+        ease: "power2.out",
+        onUpdate: () => {
+            if (progressLine.value) {
+                progressLine.value.style.height = progressHeight.value + "%"
+            }
+            if (planeEl.value) {
+                planeEl.value.style.top = `calc(${progressHeight.value}% - 20px)`
+            }
+        }
+    })
 }
 
 // Throttle function to limit scroll event frequency
