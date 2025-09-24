@@ -11,7 +11,7 @@
 
     <div class="relative z-10 container mx-auto px-6 text-center">
       <div id="hero-content" class="hero-content">
-        <h1 class="font-display font-bold text-5xl sm:text-6xl md:text-6xl lg:text-8xl text-primary-foreground mb-6 leading-tight">
+        <h1 class="font-display font-bold text-4xl sm:text-6xl md:text-6xl lg:text-8xl text-primary-foreground mb-6 leading-tight">
           <span class="block animate-slide-in-up">Modern Living,</span>
           <span class="block animate-slide-in-up text-primary" style="animation-delay: 0.2s;">Global Belonging</span>
         </h1>

@@ -4,7 +4,7 @@
         <!-- Overlay for readability -->
         <div class="absolute inset-0 bg-black/85"></div>
 
-        <div class="container mx-auto px-6">
+        <div class="container mx-auto mb-20 px-6">
             <div class="text-center mb-16 scroll-reveal">
                 <h2 class="font-display font-bold text-4xl md:text-6xl text-secondary-foreground mb-6">
                     <span class="text-secondary-foreground">Why</span>
@@ -76,23 +76,23 @@
                     </div>
 
                     <!-- Story Card - Alternating sides -->
-                    <div class="w-full md:w-[45%] mt-6 md:mt-[150px] flex items-center gap-4 bg-[#203F42] border border-[#203F42] p-5 rounded-3xl shadow-md
+                    <div class="w-full md:w-[45%] mt-6 md:mt-[150px] flex items-start gap-4 bg-[#203F42] border border-[#203F42] p-5 rounded-3xl shadow-md
                  transition transform duration-300 hover:scale-105 hover:shadow-2xl md:ml-auto md:pl-10"
                         >
                         <!-- Avatar -->
                         <img :src="step.story.avatar" alt="" class="w-14 h-14 rounded-full object-cover border-2 border-secondary-foreground
                    transition transform duration-300 hover:scale-110 hover:shadow-lg" />
                         <div>
-                            <h4 class="font-semibold text-secondary-foreground">{{ step.story.name }}</h4>
                             <p class="text-sm text-gray-400">{{ step.story.detail }}</p>
+                            <h4 class="font-semibold text-secondary-foreground mt-2">{{ step.story.name }}</h4>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="text-center absolute bottom-10 left-[40%] z-50">
+        <div class="text-center absolute left-0 bottom-[30px] sm:bottom-[30px] z-50 w-full">
             <button @click="scrollToSection('contact')"
-                class="bg-gradient-to-r from-primary to-primary-deep text-primary-foreground font-body font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                class="w-[80%] sm:w-[280px] bg-gradient-to-r from-primary to-primary-deep text-primary-foreground font-body font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
                 Let's start your Journey
             </button>
         </div>
@@ -113,47 +113,48 @@ import {
 const { scrollToSection } = useScroll()
 
 const processSteps = [
-    {
-        title: 'Eligibility Check',
-        description: 'We evaluate your profile against visa requirements, ensuring you take the right path from day one and avoid unnecessary delays.',
-        icon: ClipboardDocumentCheckIcon,
-        story: {
-            name: 'Johan – Spain Visa',
-            detail: 'Johan successfully obtained his Spain visa in 5 weeks through our detailed guidance and step-by-step assistance.',
-            avatar: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=200&h=200&fit=crop'
-        }
-    },
-    {
-        title: 'Documentation Preparation',
-        description: 'We guide you to prepare and review all required documents carefully, avoiding common mistakes and ensuring accuracy.',
-        icon: DocumentTextIcon,
-        story: {
-            name: 'Sara – Portugal Residency',
-            detail: 'Sara completed her Portugal residency paperwork without delays, thanks to our expert support.',
-            avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop'
-        }
-    },
-    {
-        title: 'Submission & Guidance',
-        description: 'We handle submissions with attention to detail and provide ongoing guidance, keeping you informed at every step.',
-        icon: PaperAirplaneIcon,
-        story: {
-            name: 'Umar – Malta Nomad Visa',
-            detail: 'Umar received his Malta Nomad Visa quickly and stress-free, with continuous support from our team.',
-            avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop'
-        }
-    },
-    {
-        title: 'Relocation Success',
-        description: 'We help you settle in your new country, providing relocation advice and follow-up support for a smooth transition.',
-        icon: GlobeAltIcon,
-        story: {
-            name: 'Emma – Portugal',
-            detail: 'Emma relocated with her family seamlessly, benefiting from our complete relocation support.',
-            avatar: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=200&h=200&fit=crop'
-        }
+  {
+    title: 'Eligibility Check',
+    description: 'We evaluate your profile against visa requirements, ensuring you take the right path from day one and avoid unnecessary delays.',
+    icon: ClipboardDocumentCheckIcon,
+    story: {
+      name: 'Johan – Spain Visa',
+      detail: '"I wasn’t sure if I even qualified for a Spain visa, but their team guided me from the very start. Thanks to their clear advice and support, I got my visa in just 5 weeks!"',
+      avatar: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=200&h=200&fit=crop'
     }
+  },
+  {
+    title: 'Documentation Preparation',
+    description: 'We guide you to prepare and review all required documents carefully, avoiding common mistakes and ensuring accuracy.',
+    icon: DocumentTextIcon,
+    story: {
+      name: 'Sara – Portugal Residency',
+      detail: '"The paperwork for Portugal residency felt overwhelming at first, but they made it simple. Every document was reviewed carefully, and I faced zero delays. Truly professional support!"',
+      avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop'
+    }
+  },
+  {
+    title: 'Submission & Guidance',
+    description: 'We handle submissions with attention to detail and provide ongoing guidance, keeping you informed at every step.',
+    icon: PaperAirplaneIcon,
+    story: {
+      name: 'Umar – Malta Nomad Visa',
+      detail: '"From submission to approval, I felt supported the entire way. The process was smooth, stress-free, and I got my Malta Nomad Visa much faster than expected!"',
+      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop'
+    }
+  },
+  {
+    title: 'Relocation Success',
+    description: 'We help you settle in your new country, providing relocation advice and follow-up support for a smooth transition.',
+    icon: GlobeAltIcon,
+    story: {
+      name: 'Emma – Portugal',
+      detail: '"Moving with my family was a big step, but their relocation support made everything easier—from finding housing to settling in. We couldn’t have done it so smoothly without them!"',
+      avatar: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=200&h=200&fit=crop'
+    }
+  }
 ]
+
 
 const stepsRefs = ref([])
 const progressLine = ref(null)

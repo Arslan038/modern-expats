@@ -1,9 +1,8 @@
 {
   "builds": [
-    {
-      "src": "nuxt.config.ts",
-      "use": "@nuxt/vercel-builder",
-      "config": {}
-    }
+    { "src": "nuxt.config.ts", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/" }
   ]
 }
