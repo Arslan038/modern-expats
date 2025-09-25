@@ -13,7 +13,7 @@
                     <div class="flex space-x-4">
                         <div
                             class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center hover:bg-primary/30 transition-colors cursor-pointer">
-                            <a href="https://www.instagram.com/modern.expats" target="_blank">
+                            <a href="https://www.facebook.com/Modernexpats" target="_blank">
                                 <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
                                     <path
                                         d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.909c0-.867.242-1.491 1.501-1.491h2.499v-4h-3.5c-4.012 0-4.499 3.194-4.5 7.279v2.721z" />
@@ -34,17 +34,17 @@
                 <div>
                     <h3 class="font-display font-bold text-lg text-secondary-foreground mb-4">Services</h3>
                     <ul class="space-y-2 font-body text-secondary-foreground/80">
-                        <li class="hover:text-primary transition-colors cursor-pointer">Digital Nomad Visas</li>
-                        <li class="hover:text-primary transition-colors cursor-pointer">Visitor Visas</li>
-                        <li class="hover:text-primary transition-colors cursor-pointer">Travel Consulting</li>
-                        <li class="hover:text-primary transition-colors cursor-pointer">Document Review</li>
+                        <li class="hover:text-primary transition-colors">Digital Nomad Visas</li>
+                        <li class="hover:text-primary transition-colors">Visitor Visas</li>
+                        <li class="hover:text-primary transition-colors">Travel Consulting</li>
+                        <li class="hover:text-primary transition-colors">Document Review</li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="font-display font-bold text-lg text-secondary-foreground mb-4">Contact</h3>
                     <ul class="space-y-2 font-body text-secondary-foreground/80">
                         <li>modernexpats@gmail.com</li>
-                        <li>+1 (555) 123-4567</li>
+                        <li>+34 610 775 224</li>
                         <li>24/7 Support Available</li>
                     </ul>
                 </div>

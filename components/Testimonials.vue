@@ -14,10 +14,10 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-        <TestimonialCard initials="S" name="Sarah Chen" role="Digital Marketing Manager" route="Canada → Portugal" quote="Modern Expats made my digital nomad visa application seamless. Their expertise and guidance helped me secure my Portuguese D7 visa in just 6 weeks!" />
-        <TestimonialCard initials="M" name="Marcus Johnson" role="Software Developer" route="USA → Estonia" quote="Outstanding service! The team provided detailed documentation support and interview preparation. Now I'm coding from beautiful Tallinn thanks to their help." />
-        <TestimonialCard initials="E" name="Elena Rodriguez" role="Travel Blogger" route="Spain → Mexico" quote="Their travel consulting service is incredible. Not only did they help with my visa, but their destination insights made my 6-month stay in Mexico unforgettable." />
-        <TestimonialCard initials="D" name="David Kim" role="Freelance Designer" route="Australia → Germany" quote="Professional, reliable, and results-driven. Modern Expats turned what seemed impossible into a smooth journey to my dream destination." />
+        <TestimonialCard initials="B" name="Bilal" role="Digital Marketing Manager" route="Pakistan → Portugal" quote="Modern Expats made my digital nomad visa application seamless. Their expertise and guidance helped me secure my Portuguese D8 visa in just 12 weeks!" />
+        <TestimonialCard initials="W" name="Wasiq" role="Software Developer" route="Pakistan → Malta" quote="Outstanding service! The team provided detailed documentation support and interview preparation. Now I'm coding from beautiful Malta thanks to their help." />
+        <TestimonialCard initials="U" name="Umar" role="Travel Blogger" route="Pakistan → Spain" quote="Their travel consulting service is incredible. Not only did they help with my visa, but their destination insights made my 6-month stay in Spain unforgettable." />
+        <TestimonialCard initials="U" name="Usama" role="Freelance Designer" route="Pakistan → Malta" quote="Professional, reliable, and results-driven. Modern Expats turned what seemed impossible into a smooth journey to my dream destination." />
       </div>
 
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center scroll-reveal">
@@ -36,7 +36,7 @@
 <script setup lang="ts">
 import TestimonialCard from '../components/TestimonialCard.vue'
 
-const happyTravelersUrl = '/happy-travelers.jpg'
+const happyTravelersUrl = '/happy-travelers.png'
 </script>
 
 <style scoped>

@@ -66,7 +66,7 @@
             <div class="p-8">
               <h3 class="font-display font-bold text-2xl text-foreground mb-6">Get in Touch</h3>
               <div class="space-y-6">
-                <ContactItem label="Email Us" value="info@modernexpats.com">
+                <ContactItem label="Email Us" value="modernexpats@gmail.com">
                   <template #icon>
                     <svg class="w-6 h-6 text-primary-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -85,7 +85,7 @@
                   </div>
                   <div>
                     <div class="font-body font-semibold text-foreground">Call Us</div>
-                    <div class="font-body text-muted-foreground">+1 (555) 123-4567</div>
+                    <div class="font-body text-muted-foreground">+34 610 775 224</div>
                   </div>
                 </div>
 

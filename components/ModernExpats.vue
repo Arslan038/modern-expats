@@ -36,16 +36,23 @@
 
                 <!-- Aeroplane icon that moves with progress and changes direction -->
                 <div ref="planeEl" class="absolute left-1/2 hidden md:block z-20"
-                    :class="isScrollingDown ? '-translate-x-[17.5px]' : '-translate-x-[22.5px]'">
+                    :class="isScrollingDown ? '-translate-x-[20.5px]' : '-translate-x-[19.5px]'">
                     <div class="w-10 h-10 transform transition-transform duration-300" :class="[
                         { 'scale-110': progressHeight > 0 && progressHeight < 100 },
                         { 'rotate-180': isScrollingDown },
                         { 'rotate-0': !isScrollingDown }
                     ]">
                         <!-- SVG -->
-                        <svg viewBox="0 0 24 24" fill="#F9B44C" class="w-full h-full drop-shadow-lg">
-                            <path
-                                d="M22 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S12 2.67 12 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L16 19v-5.5l8 2.5z" />
+                        <svg fill="#F9B44C" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                            stroke="#F9B44C">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <title>plane</title>
+                                <path
+                                    d="M15.521 3.91c0.828 0 1.5 0.672 1.5 1.5v7.75l10 6.25v2.688l-10-3.375v5.25l2.039 2.029-0.001 2.084-3.538-1.176-3.487 1.18 0.015-2.189 1.91-1.865 0.017-5.312-9.997 3.436 0.021-2.75 10.007-6.313 0.016-7.688c-0.002-0.827 0.67-1.499 1.498-1.499z">
+                                </path>
+                            </g>
                         </svg>
                     </div>
                 </div>
@@ -115,7 +122,7 @@ const processSteps = [
         description: 'We evaluate your profile against visa requirements, ensuring you take the right path from day one and avoid unnecessary delays.',
         icon: ClipboardDocumentCheckIcon,
         story: {
-            name: 'Johan – Spain Visa',
+            name: 'Umar – Spain Visa',
             detail: '"I wasn’t sure if I even qualified for a Spain visa, but their team guided me from the very start. Thanks to their clear advice and support, I got my visa in just 5 weeks!"',
             avatar: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=200&h=200&fit=crop'
         }
@@ -135,7 +142,7 @@ const processSteps = [
         description: 'We handle submissions with attention to detail and provide ongoing guidance, keeping you informed at every step.',
         icon: PaperAirplaneIcon,
         story: {
-            name: 'Umar – Malta Nomad Visa',
+            name: 'Wasiq – Malta Nomad Visa',
             detail: '"From submission to approval, I felt supported the entire way. The process was smooth, stress-free, and I got my Malta Nomad Visa much faster than expected!"',
             avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop'
         }
@@ -145,7 +152,7 @@ const processSteps = [
         description: 'We help you settle in your new country, providing relocation advice and follow-up support for a smooth transition.',
         icon: GlobeAltIcon,
         story: {
-            name: 'Emma – Portugal',
+            name: 'Rabia – Malta',
             detail: '"Moving with my family was a big step, but their relocation support made everything easier—from finding housing to settling in. We couldn’t have done it so smoothly without them!"',
             avatar: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=200&h=200&fit=crop'
         }
